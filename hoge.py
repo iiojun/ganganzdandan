@@ -23,10 +23,10 @@ def main():
   n4 = Node("ダ");
   e = Node("")
 
-  n1.putNode(n2); n1.putNode(n2)
+  n1.putNode(n2);
   n2.putNode(n1); n2.putNode(n3); n2.putNode(n4); n2.putNode(e)
   n3.putNode(n4);
-  n4.putNode(n2); n4.putNode(n2)
+  n4.putNode(n2);
 
   while(cur != e):
     cur = cur.putLabel().nextNode()
