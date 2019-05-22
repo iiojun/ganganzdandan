@@ -11,25 +11,26 @@ class Node:
     self.nodes.append(node)
     
   def nextNode(self):
-    return random.choice(self.nodes)
+    n = random.choice(self.nodes)
+    self.nodes.remove(n)
+    return n
     
   def putLabel(self):
-    print(self.label, end=""); return self
+    print(self.label, end=""); return len(self.nodes)
 
 def main():
-  cur = n1 = Node("ガ");
-  n2 = Node("ン");
+  cur = n1 = Node("ガ")
+  n2 = Node("ン")
   n3 = Node("ズ")
-  n4 = Node("ダ");
-  e = Node("")
+  n4 = Node("ダ")
 
-  n1.putNode(n2);
-  n2.putNode(n1); n2.putNode(n3); n2.putNode(n4); n2.putNode(e)
-  n3.putNode(n4);
-  n4.putNode(n2);
+  n1.putNode(n2); n1.putNode(n2)
+  n2.putNode(n1); n2.putNode(n3); n2.putNode(n4)
+  n3.putNode(n4)
+  n4.putNode(n2); n4.putNode(n2)
 
-  while(cur != e):
-    cur = cur.putLabel().nextNode()
+  while (cur.putLabel() > 0):
+    cur = cur.nextNode()
   print()
 
 if __name__ == "__main__":
